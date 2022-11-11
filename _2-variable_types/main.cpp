@@ -80,4 +80,72 @@ int main() {
     system("pause");
     return 0;
 }
-*/
+-------------------------------------------------
+///////////////////////////////////////////////////
+//Scope - definition
+#include <iostream>
+
+int main () { // Function scope
+    int a = 1;
+    std::cout << "Function = " << a <<std::endl;
+    
+    { // Internal scope
+        int a = 2;
+        std::cout << "Internal = " << a <<std::endl;
+    }
+    std::cout << "Function = " << a <<std::endl;
+    
+}
+-------------------------------------------------
+//////////////////////////////////////////////////
+// Constant definition
+
+//    Literal -->> number and symbol
+//    #define -->> preprocessor
+//    const   -->> keyword
+
+#include <iostream>
+
+//-****** DEFINE Preprocessor *******
+//#define PI  3.1415
+//#define r   10
+//-****** DEFINE Preprocessor *******
+
+//-****** CONST Keyword *******
+const float PI = 3.1415;
+const int r = 10;
+//-****** CONST Keyword *******
+
+float area = 0;
+    
+int main () {
+    area = (float)(PI * r * r);
+
+    std::cout << "Area of the Circle = " << area << std::endl;
+}
+
+-------------------------------------------------
+//////////////////////////////////////////////////
+// Modifier
+// some speciffic keywords relation to add before and after to the code
+// 1- signed
+// 2- unsigned
+// 3- short
+// 4- long
+
+#include <iostream>
+
+
+int main () {
+    short int PI;
+    short unsigned int r;
+
+    PI  = 3;
+    r   = 10;
+
+    int area = (PI * r * r);
+
+    std::cout << "Area of the Circle = " << area << std::endl;
+}
+-------------------------------------------------
+//////////////////////////////////////////////////*/
