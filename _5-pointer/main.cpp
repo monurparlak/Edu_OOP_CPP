@@ -1,14 +1,24 @@
 ///////////////////////////////////////////////////
 /*-----------------------------------------------
-// CPP Functions
-
-    sum, substract, multiply, divide
-    -function definition
-    -choices
+// CPP Pointer
 -------------------------------------------------*/
 ///////////////////////////////////////////////////
 #include <iostream>
 
+constexpr int SIZE = 3;
+
+int main() {
+    int a[SIZE] = {1000, 100, 10};
+    int i = 0; 
+
+    int *lastPtr = &a[SIZE - 1];
+    int *aptr = a;
+
+    while (aptr ++ <= lastPtr) {
+        i++;
+        std::cout << "a[" << i << "] : " << *(a + i - 1) <<std::endl;
+    }
+}
 
 
 
