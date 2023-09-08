@@ -3,116 +3,193 @@
 #include <iostream>
 
 int main() {
-  //int arr[5];
-  //int arr[3] = {1, 2, 3};
-  int arr[] = {1, 2, 3};
-  std::cout << "1st element: " << arr[0] << std::endl;
-} */
-/////////////////////////////////////
-/* Ex_2
-#include <iostream>
+  char charValue = 'A';
+  char firstMessage[6] = {'H', 'E', 'L', 'L', 'O', '\0'};
 
-int main() {
-  int array[5];
+  std::cout << "Size of char: " << sizeof(char) << std::endl;
+  std::cout << "Char value: " << charValue << std::endl;
 
-  for (int i = 0; i < 5; i++)
-    array[i] = 1 + i;
-
-  for (int i = 0; i < 5; i++)
-    std::cout << "array[" << i << "]: " << array[i] << std::endl;
-}*/
-/////////////////////////////////////
-/* Ex_3
-#include <iostream>
-
-#define SIZE_1 2
-#define SIZE_2 2
-
-int main() {
-  int array_a[3][3] = {{1, 2}, {3, 4}, {5, 6}};
-  int array_b[SIZE_1][SIZE_2] = {{7, 8}, {9, 0}};
-
-  for (int i = 0; i < SIZE_1; i++)
-    for (int j = 0; j < SIZE_2; j++)
-      std::cout << "array_b[" << i << "][" << j << "]: " << array_b[i][j]
-                << std::endl;
+  std::cout << "Frist Message: " << firstMessage << std::endl;
 
   return 0;
 } */
 /////////////////////////////////////
-/* Ex_4
+/* Ex_2
+#include <cstring>
 #include <iostream>
 
-#define SIZE 3
+int main() {
+    const char* word = "House";
+
+    char charArray[strlen(word)];
+
+    for (size_t i = 0; i < strlen(word); ++i)
+        charArray[i] = word[i];
+
+    for (size_t i = 0; i < strlen(word); ++i)
+        std::cout << "array[" << i << "] = '" << charArray[i] << "'" <<
+std::endl;
+
+    return 0;
+} */
+/////////////////////////////////////
+/* Ex_3
+#include <iostream>
+#include <string>
 
 int main() {
-  int counters[SIZE] = {50, 100, 200};
-  int *counters_ptr;
+    char charArray[] = {'H', 'o', 'u', 's', 'e'};
 
-  counters_ptr = counters;
+    std::string str;
 
-  for (int i = 0; i < SIZE; i++) {
-    std::cout << "counters[" << i << "]: " << counters[i] << " - "
-              << &counters[i] << std::endl;
+    for (int i = 0; i < sizeof(charArray); ++i) {
+        str += charArray[i];
+    }
+
+    std::cout << str << std::endl;
+
+    return 0;
+} */
+/////////////////////////////////////
+/* Ex_4
+#include <iostream>
+#include <string>
+
+int main() {
+  std::string str = "andromeda";
+  int length = str.length();
+
+  for (int i = 0; i < length; ++i) {
+    int count = 1;
+
+    for (int j = i + 1; j < length; ++j) {
+      if (str[i] == str[j]) {
+        count++;
+        str[j] = ' ';
+      }
+    }
+
+    if (count > 1 && str[i] != ' ') {
+      std::cout << "Character '" << str[i] << "' "
+                << " repeats " << count << " times." << std::endl;
+    }
   }
 
   return 0;
 } */
 /////////////////////////////////////
 /* Ex_5
+#include <cstring>
 #include <iostream>
 
+#define SIZE 20
+
+// strcpy(str_1, str_2) -> copy str_1 to str_2
+// strlen(str_1) -> length of str_1
+// strcmp(str_1, str_2) -> compare both str_1 and str_2
+// strchr(str_1) -> searching specific characters
+// strcat(str_1, str_2) -> concantenates str_2 onto str_1
+
 int main() {
-  int arr1 = 10;
-  double arr2 = 12.4;
+  char str_1[SIZE] = "House";
+  char str_2[SIZE] = "Bicycle";
+  char str_3[SIZE];
 
-  int *arr1ptr = &arr1;
-  double *arr2ptr = &arr2;
-
-  std::cout << "arr1ptr    : " << arr1ptr << std::endl;
-  std::cout << "arr1ptr + 1: " << arr1ptr + 1 << std::endl;
-  std::cout << "arr1ptr - 1: " << arr1ptr - 1 << std::endl;
-
-  std::cout << "arr2ptr    : " << arr2ptr << std::endl;
-  std::cout << "arr2ptr + 1: " << arr2ptr + 1 << std::endl;
-  std::cout << "arr2ptr - 1: " << arr2ptr - 1 << std::endl;
+  // strcpy(str_1, str_2) -> copy str_1 to str_2
+  strcpy(str_3, str_1);
+  std::cout << "strcpy for str_3 to str_1: " << str_3 << std::endl;
+  for (int i = 0; i < strlen(str_3); i++)
+    std::cout << "str_3[" << i << "]: " << str_3[i] << std::endl;
 
   return 0;
 } */
 /////////////////////////////////////
 /* Ex_6
+#include <cstring>
 #include <iostream>
 
-#define SIZE 3
+#define SIZE 20
 
-// ADDRESS, initial address
-void initializeArrayFunc(int *arr, int arrSize);
-void displayArrayFunc(int *arr, int arrSize);
-
-// ADDRESS, thw whole address
-// void initializeArrayFunc(int arr[SIZE], int arrSize);
-// void displayArrayFunc(int arr[SIZE], int arrSize);
-
-// ADDRESS, initial address
-// void initializeArrayFunc(int arr[], int arrSize);
-// void displayArrayFunc(int arr[], int arrSize);
+// strcpy(str_1, str_2) -> copy str_1 to str_2
+// strlen(str_1) -> length of str_1
+// strcmp(str_1, str_2) -> compare both str_1 and str_2
+// strchr(str_1) -> searching specific characters
+// strcat(str_1, str_2) -> concantenates str_2 onto str_1
 
 int main() {
-  int arr[SIZE];
+  char str_1[SIZE] = "House";
+  char str_2[SIZE] = "Bicycle";
+  char str_3[SIZE];
 
-  initializeArrayFunc(arr, SIZE);
-  displayArrayFunc(arr, SIZE);
+  // strcat(str_1, str_2) -> concantenates str_2 onto str_1
+  strcat(str_1, " ");
+  strcat(str_1, str_2);
+
+  int length = strlen(str_1);
+
+  std::cout << "strcat result with str_1 & str_2: " << str_1 << std::endl;
+  // std::cout << "strcat length result: " << strlen(str_1) << std::endl;
+  std::cout << "strcat length result: " << length << std::endl;
 
   return 0;
-}
+} */
+/////////////////////////////////////
+/* Ex_7
+#include <cstring>
+#include <iostream>
 
-void initializeArrayFunc(int *arr, int arrSize) {
-  for (int i = 0; i < arrSize; i++)
-    arr[i] = i;
-}
+#define SIZE 20
 
-void displayArrayFunc(int *arr, int arrSize) {
-  for (int i = 0; i < arrSize; i++)
-    std::cout << "arr[" << i << "]: " << arr[i] << std::endl;
-}
-*/
+// strcpy(str_1, str_2) -> copy str_1 to str_2
+// strlen(str_1) -> length of str_1
+// strcmp(str_1, str_2) -> compare both str_1 and str_2
+// strchr(str_1) -> searching specific characters
+// strcat(str_1, str_2) -> concantenates str_2 onto str_1
+
+int main() {
+  char str_1[SIZE] = "House";
+  char str_2[SIZE] = "Bicycle";
+  char str_3[SIZE] = "House";
+
+  // strcmp(str_1, str_2) -> compare both str_1 and str_2
+  int strcmpValue_1 = strcmp(str_1, str_2);
+
+  std::cout << "Compare with strcmp: " << strcmpValue_1 << std::endl;
+  std::cout << "strcat length result: " << sizeof(strcmpValue_1) << std::endl;
+
+  int strcmpValue_2 = strcmp(str_1, str_3);
+  if (strcmpValue_2 == 0)
+    std::cout << "str_1 is equal to str_3" << std::endl;
+  else
+    std::cout << "str_1 is not equal to str_2" << std::endl;
+
+  std::cout << "Compare with strcmp: " << strcmpValue_2 << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_8
+#include <cstring>
+#include <iostream>
+
+#define SIZE 20
+
+// strcpy(str_1, str_2) -> copy str_1 to str_2
+// strlen(str_1) -> length of str_1
+// strcmp(str_1, str_2) -> compare both str_1 and str_2
+// strchr(str_1) -> searching specific characters
+// strcat(str_1, str_2) -> concantenates str_2 onto str_1
+
+int main() {
+  char str_1[SIZE] = "House";
+  char str_2[SIZE] = "Bicycle";
+  char str_3[SIZE] = "House";
+
+  // strchr(str_1) -> searching specific characters
+  char ch = 'h';
+  char *chptr = strchr(str_1, ch);
+
+  std::cout << "String starting : '" << chptr << "'." << std::endl;
+
+  return 0;
+} */
