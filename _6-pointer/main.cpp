@@ -176,11 +176,71 @@ void indiaConfig(int *arrayptr, int arrayptr_size) {
   }
 } */
 /////////////////////////////////////
-/* Ex_8 */
-#include <cstdio>
+/* Ex_8
+//${fileDirname}\\mylib_string.hpp -->> task file for vscode
+#include "mylib_string.hpp"
+#include <cstring>
 #include <iostream>
 
+#define ARRAY_SIZE 20
+
+char alpha[ARRAY_SIZE] = "Alpha";
+char bravo[ARRAY_SIZE] = "Bravo";
+char charlie[ARRAY_SIZE] = "Alpha";
+char delta[ARRAY_SIZE] = "Delta";
+
 int main() {
-  std::cout << "" << std::endl;
+  /////////////////////////////////////////////////////////////////////////
+  std::cout << std::endl
+            << "----- strlen compare with myStrlen -----" << std::endl;
+
+  int length = strlen(alpha);
+  int mylength = myStrlen(alpha);
+
+  std::cout << "Compare with strlen: " << length << std::endl;
+  std::cout << "Compare with myStrlen: " << mylength << std::endl;
+
+  /////////////////////////////////////////////////////////////////////////
+  std::cout << std::endl
+            << "----- strcmp compare with myStrcmp -----" << std::endl;
+
+  int result = strcmp(alpha, charlie);
+  int myResult = myStrcmp(alpha, charlie);
+
+  if (result == 0) {
+    std::cout << "Strings are equal using strcmp." << std::endl;
+  } else {
+    std::cout << "Strings are not equal using strcmp." << std::endl;
+  }
+
+  if (myResult == 0) {
+    std::cout << "Strings are equal using myStrcmp." << std::endl;
+  } else {
+    std::cout << "Strings are not equal using myStrcmp." << std::endl;
+  }
+
+  /////////////////////////////////////////////////////////////////////////
+  std::cout << std::endl
+            << "----- strcat compare with myStrcat -----" << std::endl;
+
+  strcat(charlie, bravo);
+  std::cout << "Concatenated string using strcat: " << charlie << std::endl;
+
+  myStrcat(charlie, bravo);
+  std::cout << "Concatenated string using myStrcat: " << charlie << std::endl;
+
+  /////////////////////////////////////////////////////////////////////////
+  std::cout << std::endl
+            << "----- strchr compare with myStrchr -----" << std::endl;
+
+  char ch = 'h';
+  char *chptr = strchr(alpha, ch);
+  char *my_chptr = myStrchr(alpha, ch);
+
+  std::cout << "String starting : '" << chptr << std::endl;
+  std::cout << "String starting : '" << my_chptr << std::endl;
+
+  std::cout << std::endl;
+
   return 0;
-}
+} */
