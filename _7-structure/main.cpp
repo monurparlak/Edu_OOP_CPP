@@ -1,74 +1,86 @@
+/////////////////////////////////////
+/* Ex_1
 #include <iostream>
-#include <cstring>
-/*
-struct Student {
-    char name[20];
-    int points;
-    double meanAveragePoint;
+
+struct carModels_t {
+  char carName;
+  int carRate;
+  double carCost;
 };
 
-int main () {
-    struct Student mehmet;
+// typedef struct carModels_t {
+//   char carName;
+//   int carRate;
+//   double carCost;
+// } carModels;
 
-    mehmet.meanAveragePoint = 1.15;
-    strcpy(mehmet.name, "Mehmet");
-    mehmet.points           = 65;
+int main() {
+  struct carModels_t carModels;
 
-    std::cout << "meanAveragePoint = " << mehmet.meanAveragePoint << std::endl;
-    std::cout << "name = " << mehmet.name << std::endl;
-    std::cout << "points = " << mehmet.points << std::endl;
-    
+  carModels.carName = 'S';
+  // strcpy(carModels.carName, 'S');
+  carModels.carRate = 7;
+  carModels.carCost = 185.575;
+
+  std::cout << "Car Name: " << carModels.carName << std::endl;
+  std::cout << "Car Rate: " << carModels.carRate << std::endl;
+  std::cout << "Car Cost: " << carModels.carCost << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_2 */
+#include <iostream>
+
+char Electrical = 'E';
+char Diesel = 'D';
+char Gasoline = 'G';
+
+char Alpha = 'A';
+char Bravo = 'B';
+char Charlie = 'C';
+
+struct carModels_t {
+  char carName;
+  int carRate;
+  double carCost;
+};
+
+struct carTypes_t {
+  carModels_t info;
+  char carEngine;
+  char carFuel;
+};
+
+void carModeUpdate(carTypes_t *carInfo);
+
+int main() {
+  carModels_t carModels;
+
+  carTypes_t carCollection;
+  carTypes_t *carCollectionptr = &carCollection;
+
+  carModeUpdate(carCollectionptr);
+
+  std::cout << "Car Name: " << carModels.carName << std::endl;
+  std::cout << "Car Rate: " << carModels.carRate << std::endl;
+  std::cout << "Car Cost: " << carModels.carCost << std::endl;
+  std::cout << "Car Engine: " << carCollection.carEngine << std::endl;
+  std::cout << "Car Fuel: " << carCollection.carFuel << std::endl << std::endl;
+
+  std::cout << "Car Name: " << carCollectionptr->carModels.carName << std::endl;
+  std::cout << "Car Rate: " << carCollectionptr->carModels.carRate << std::endl;
+  std::cout << "Car Cost: " << carCollectionptr->carModels.carCost << std::endl;
+  std::cout << "Car Engine: " << carCollectionptr->carEngine << std::endl;
+  std::cout << "Car Fuel: " << carCollectionptr->carFuel << std::endl;
+
+  return 0;
 }
 
-*/
-/*
-
-typedef struct Student {
-    char name[20];
-    int points;
-    double meanAveragePoint;
-}Students_s;
-
-int main () {
-    Students_s mehmet;
-
-    mehmet.meanAveragePoint = 1.15;
-    strcpy(mehmet.name, "Mehmet");
-    mehmet.points           = 65;
-
-    std::cout << "meanAveragePoint = " << mehmet.meanAveragePoint << std::endl;
-    std::cout << "name = " << mehmet.name << std::endl;
-    std::cout << "points = " << mehmet.points << std::endl;
-    
+void carModeUpdate(carTypes_t *carInfo) {
+  carInfo->info.carName = Alpha;
+  carInfo->info.carRate = 5;
+  carInfo->info.carCost = 125.650;
+  carInfo->carEngine = 7;
+  carInfo->carFuel = Electrical;
 }
-*/
-typedef struct Student {
-    char name[20];
-    int points;
-    double meanAveragePoint;
-}Student_s;
-
-void studentUpdateInfo(Student_s *studentVar);
-
-int main () {
-    Student_s mehmet;
-    Student_s *ptrMehmet = &mehmet;
-
-    studentUpdateInfo(ptrMehmet);
-
-    std::cout << "meanAveragePoint = " << mehmet.meanAveragePoint << std::endl;
-    std::cout << "name = " << mehmet.name << std::endl;
-    std::cout << "points = " << mehmet.points << std::endl;
-    
-}
-void studentUpdateInfo(Student_s *studentVar){
-    strcpy(studentVar->name, "Mehmet");
-    studentVar->meanAveragePoint = 1.11;
-    studentVar->points           = 35;
-}
-
-
-
-
-
-
