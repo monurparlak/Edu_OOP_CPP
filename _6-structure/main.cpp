@@ -29,7 +29,7 @@ int main() {
   return 0;
 } */
 /////////////////////////////////////
-/* Ex_2 */
+/* Ex_2 */ 
 #include <iostream>
 
 char Electrical = 'E';
@@ -39,7 +39,6 @@ char Gasoline = 'G';
 char Alpha = 'A';
 char Bravo = 'B';
 char Charlie = 'C';
-
 struct carModels_t {
   char carName;
   int carRate;
@@ -47,7 +46,7 @@ struct carModels_t {
 };
 
 struct carTypes_t {
-  carModels_t info;
+  carModels_t carModels; // carModels_t türünden bir yapı ekledik
   char carEngine;
   char carFuel;
 };
@@ -55,16 +54,14 @@ struct carTypes_t {
 void carModeUpdate(carTypes_t *carInfo);
 
 int main() {
-  carModels_t carModels;
-
   carTypes_t carCollection;
   carTypes_t *carCollectionptr = &carCollection;
 
   carModeUpdate(carCollectionptr);
 
-  std::cout << "Car Name: " << carModels.carName << std::endl;
-  std::cout << "Car Rate: " << carModels.carRate << std::endl;
-  std::cout << "Car Cost: " << carModels.carCost << std::endl;
+  std::cout << "Car Name: " << carCollection.carModels.carName << std::endl;
+  std::cout << "Car Rate: " << carCollection.carModels.carRate << std::endl;
+  std::cout << "Car Cost: " << carCollection.carModels.carCost << std::endl;
   std::cout << "Car Engine: " << carCollection.carEngine << std::endl;
   std::cout << "Car Fuel: " << carCollection.carFuel << std::endl << std::endl;
 
@@ -78,9 +75,9 @@ int main() {
 }
 
 void carModeUpdate(carTypes_t *carInfo) {
-  carInfo->info.carName = Alpha;
-  carInfo->info.carRate = 5;
-  carInfo->info.carCost = 125.650;
-  carInfo->carEngine = 7;
+  carInfo->carModels.carName = Alpha;
+  carInfo->carModels.carRate = 5;
+  carInfo->carModels.carCost = 125.650;
+  carInfo->carEngine = '7';
   carInfo->carFuel = Electrical;
 }
