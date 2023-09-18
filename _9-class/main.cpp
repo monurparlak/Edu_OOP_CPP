@@ -87,6 +87,92 @@ int main() {
 }
 /////////////////////////////////////
 /* Ex_4
+#include <iostream>
+#include <string>
+#include <vector>
+
+class BulletType {
+public:
+    BulletType(const std::string& name, int caliber) : name(name), caliber(caliber) {}
+
+    std::string getName() const {
+        return name;
+    }
+
+    int getCaliber() const {
+        return caliber;
+    }
+
+    void display() const {
+        std::cout << this->name << " Bullet (" << this->caliber << "mm)" << std::endl;
+    }
+
+private:
+    std::string name;
+    int caliber;
+};
+
+class Magazine {
+public:
+    Magazine(int capacity, const BulletType& bulletType) : capacity(capacity), bulletType(bulletType) {}
+
+    void loadBullet(const BulletType& bullet) {
+        if (this->bullets.size() < this->capacity && bullet.getCaliber() == this->bulletType.getCaliber()) {
+            this->bullets.push_back(bullet);
+        }
+        else {
+            std::cout << "Invalid bullet type or magazine is full." << std::endl;
+        }
+    }
+
+    void display() const {
+        std::cout << "Magazine (" << this->bullets.size() << "/" << this->capacity << ")" << std::endl;
+    }
+
+private:
+    int capacity;
+    const BulletType& bulletType;
+    std::vector<BulletType> bullets;
+};
+
+class Weapon {
+public:
+    Weapon(const std::string& name, int damage) : name(name), damage(damage) {}
+
+    void shoot(const Magazine& magazine) {
+        if (magazine.getBullets().size() > 0) {
+            std::cout << "Bang! " << this->name << " does " << this->damage << " damage." << std::endl;
+            magazine.removeBullet();
+        }
+        else {
+            std::cout << "Click! The magazine is empty." << std::endl;
+        }
+    }
+
+    std::string getName() const {
+        return this->name;
+    }
+
+private:
+    std::string name;
+    int damage;
+};
+
+int main() {
+    BulletType nineMillimeter("9mm", 9);
+    Magazine magazine(15, nineMillimeter);
+    Weapon pistol("Pistol", 30);
+
+    magazine.loadBullet(nineMillimeter);
+    magazine.loadBullet(nineMillimeter);
+
+    pistol.shoot(magazine);
+    pistol.shoot(magazine);
+
+    return 0;
+} */
+/////////////////////////////////////
+/* Ex_5
 #include <cstring>
 #include <iostream>
 
