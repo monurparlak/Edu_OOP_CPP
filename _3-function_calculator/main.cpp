@@ -63,15 +63,6 @@ int sum () {
     return a + b;
 }
 
-int substract (){
-    std::cout << "Two integers numbers: ";
-    int a, b;
-    std::cin >> a >> b;
-    std::cout << "The substract of two variables: " << (a - b) <<std::endl;
-
-    return a - b;
-}
-
 int multiply (){
     std::cout << "Two integers numbers: ";
     int a, b;
@@ -79,6 +70,15 @@ int multiply (){
     std::cout << "The multiply of two variables: " << (a * b) <<std::endl;
 
     return a * b;
+}
+
+int substract (){
+    std::cout << "Two integers numbers: ";
+    int a, b;
+    std::cin >> a >> b;
+    std::cout << "The substract of two variables: " << (a - b) <<std::endl;
+
+    return a - b;
 }
 
 int devide (){
