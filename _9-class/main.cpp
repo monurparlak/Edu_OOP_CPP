@@ -14,8 +14,8 @@ delete (free)
 
 //using namespace std;
 
-int main()                                      // General address where program executes
-{                                               // Scope
+int main()                                      // General address where program
+executes {                                               // Scope
 
     int *ptr1 = NULL;
     ptr1 = new int;
@@ -72,19 +72,30 @@ int main() {
   return 0;
 } */
 /////////////////////////////////////
-/* Ex_3 */
-#include <cstring>
+/* Ex_3
 #include <iostream>
 
-class classMade {
-public:
+class myClass {
 private:
+  int alpha;
+
+public:
+  void func();
 };
+myClass quebec;
+
+void myClass::func() { *this = quebec; }
 
 int main() {
-  std::cout << "Test" << std::endl;
+  myClass sierra;
+
+  sierra.func();
+
+  std::cout << "&sierra: " << &sierra << std::endl;
+  std::cout << "&quebec: " << &quebec << std::endl;
+
   return 0;
-}
+} */
 /////////////////////////////////////
 /* Ex_4
 #include <iostream>
@@ -93,7 +104,8 @@ int main() {
 
 class BulletType {
 public:
-    BulletType(const std::string& name, int caliber) : name(name), caliber(caliber) {}
+    BulletType(const std::string& name, int caliber) : name(name),
+caliber(caliber) {}
 
     std::string getName() const {
         return name;
@@ -104,7 +116,8 @@ public:
     }
 
     void display() const {
-        std::cout << this->name << " Bullet (" << this->caliber << "mm)" << std::endl;
+        std::cout << this->name << " Bullet (" << this->caliber << "mm)" <<
+std::endl;
     }
 
 private:
@@ -114,19 +127,22 @@ private:
 
 class Magazine {
 public:
-    Magazine(int capacity, const BulletType& bulletType) : capacity(capacity), bulletType(bulletType) {}
+    Magazine(int capacity, const BulletType& bulletType) : capacity(capacity),
+bulletType(bulletType) {}
 
     void loadBullet(const BulletType& bullet) {
-        if (this->bullets.size() < this->capacity && bullet.getCaliber() == this->bulletType.getCaliber()) {
-            this->bullets.push_back(bullet);
+        if (this->bullets.size() < this->capacity && bullet.getCaliber() ==
+this->bulletType.getCaliber()) { this->bullets.push_back(bullet);
         }
         else {
-            std::cout << "Invalid bullet type or magazine is full." << std::endl;
+            std::cout << "Invalid bullet type or magazine is full." <<
+std::endl;
         }
     }
 
     void display() const {
-        std::cout << "Magazine (" << this->bullets.size() << "/" << this->capacity << ")" << std::endl;
+        std::cout << "Magazine (" << this->bullets.size() << "/" <<
+this->capacity << ")" << std::endl;
     }
 
 private:
@@ -141,8 +157,8 @@ public:
 
     void shoot(const Magazine& magazine) {
         if (magazine.getBullets().size() > 0) {
-            std::cout << "Bang! " << this->name << " does " << this->damage << " damage." << std::endl;
-            magazine.removeBullet();
+            std::cout << "Bang! " << this->name << " does " << this->damage << "
+damage." << std::endl; magazine.removeBullet();
         }
         else {
             std::cout << "Click! The magazine is empty." << std::endl;
@@ -282,3 +298,100 @@ int main() {
 
   return 0;
 } */
+/////////////////////////////////////
+/* Ex_6
+#include <iostream>
+
+class myClass {
+private:
+  int x;
+
+public:
+  myClass() { std::cout << "Constructor" << std::endl; }
+  ~myClass() { std::cout << "Destructor" << std::endl; }
+};
+
+int main() {
+  myClass class_1;
+  std::cout << "Test" << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_7
+#include <iostream>
+
+class myClass {
+private:
+  int x;
+
+public:
+  myClass() { std::cout << "Constructor" << std::endl; }
+  ~myClass() { std::cout << "Destructor" << std::endl; }
+};
+
+int main() {
+  myClass *pd = new myClass; // Constructor
+  delete pd;                 // Constructor + Distructor
+
+  std::cout << "Test" << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_8
+#include <iostream>
+
+class myClass {
+private:
+  int x;
+
+public:
+  myClass() { std::cout << "Constructor" << std::endl; }
+  ~myClass() { std::cout << "Destructor" << std::endl; }
+};
+
+int main() {
+  // myClass *pd = new myClass; // Constructor
+  // delete pd;                 // Constructor + Distructor
+
+  myClass *pd = new myClass[5]; // Constructor
+  delete[] pd;                  // Constructor + Distructor
+
+  std::cout << "Test" << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_9 */
+#include <iostream>
+
+/*
+class myClass {
+private:
+  int x;
+
+public:
+  myClass() { std::cout << "Constructor" << std::endl; }
+  ~myClass() { std::cout << "Destructor" << std::endl; }
+};
+*/
+static int k = 3;
+
+int main() {
+  // myClass *pd = new myClass; // Constructor
+  // delete pd;                 // Constructor + Distructor
+  /*
+    myClass *pd = new myClass[5]; // Constructor
+    delete[] pd;                  // Constructor + Distructor
+  */
+  for (int i = 0; i < 5; i++) {
+    std::cout << "Test" << std::endl;
+    if (k == 3) {
+      std::cout << "k= " << k << std::endl;
+      k++;
+    }
+  }
+
+  return 0;
+}
