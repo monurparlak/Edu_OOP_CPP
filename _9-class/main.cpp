@@ -300,6 +300,7 @@ int main() {
 } */
 /////////////////////////////////////
 /* Ex_6
+// Constructor - destructor - copy constructor - assigment operator
 #include <iostream>
 
 class myClass {
@@ -319,6 +320,7 @@ int main() {
 } */
 /////////////////////////////////////
 /* Ex_7
+// Constructor - destructor - copy constructor - assigment operator
 #include <iostream>
 
 class myClass {
@@ -340,6 +342,7 @@ int main() {
 } */
 /////////////////////////////////////
 /* Ex_8
+// Constructor - destructor - copy constructor - assigment operator
 #include <iostream>
 
 class myClass {
@@ -363,35 +366,120 @@ int main() {
   return 0;
 } */
 /////////////////////////////////////
-/* Ex_9 */
+/* Ex_9
+// Constructor - destructor - copy constructor - assigment operator
 #include <iostream>
 
-/*
 class myClass {
 private:
   int x;
 
 public:
-  myClass() { std::cout << "Constructor" << std::endl; }
+  myClass() { std::cout << "Default Constructor" << std::endl; }
+  myClass(const myClass &r) { std::cout << "Copy Constructor" << std::endl; }
   ~myClass() { std::cout << "Destructor" << std::endl; }
 };
-*/
-static int k = 3;
 
 int main() {
-  // myClass *pd = new myClass; // Constructor
-  // delete pd;                 // Constructor + Distructor
-  /*
-    myClass *pd = new myClass[5]; // Constructor
-    delete[] pd;                  // Constructor + Distructor
-  */
-  for (int i = 0; i < 5; i++) {
-    std::cout << "Test" << std::endl;
-    if (k == 3) {
-      std::cout << "k= " << k << std::endl;
-      k++;
-    }
-  }
+  myClass m1;
+  myClass m2(m1);
+
+  std::cout << "Test" << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_10
+// Constructor - destructor - copy constructor - assigment operator
+#include <iostream>
+
+class myClass {
+private:
+  int x;
+
+public:
+  myClass() { std::cout << "Default Constructor" << std::endl; }
+  myClass(const myClass &r) { std::cout << "Copy Constructor" << std::endl; }
+  ~myClass() { std::cout << "Destructor" << std::endl; }
+};
+
+void func1(myClass x) {}
+void func2(myClass &x) {}
+
+int main() {
+  myClass m1;
+  func1(m1);
+  func2(m1);
+
+  std::cout << "Test" << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_11
+// Constructor - destructor - copy constructor - assigment operator
+#include <iostream>
+
+class myClass {
+private:
+  int x;
+
+public:
+  myClass() { std::cout << "Default Constructor" << std::endl; }
+  myClass(const myClass &r) { std::cout << "Copy Constructor" << std::endl; }
+  ~myClass() { std::cout << "Destructor" << std::endl; }
+};
+
+myClass g;
+
+myClass func() { return g; }
+
+int main() {
+  std::cout << "TEST-1" << std::endl;
+  func();
+  std::cout << "TEST-2" << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_12 */
+// Constructor - destructor - copy constructor - assigment operator
+#include <cstring>
+#include <iostream>
+
+class classAlpha {
+private:
+  char *pd;
+  int len;
+
+public:
+  classAlpha(const char *p);
+  classAlpha(const classAlpha &r);
+
+  // void display() const;
+  // int getlen() const;
+  ~classAlpha();
+
+  // classAlpha &operator=(const classAlpha &r);
+};
+
+classAlpha::classAlpha(const char *p) {
+  len = strlen(p);
+  pd = new char[len + 1];
+  strcpy(pd, p);
+
+  std::cout << "pd: " << p << std::endl;
+}
+
+classAlpha::~classAlpha() {
+  std::cout << "Destructor" << std::endl;
+  delete[] pd;
+}
+
+int main() {
+  classAlpha alpha("ALPHA");   // Default Constructor
+  classAlpha alpha2("ALPHA2"); // Copy Constructor
+  std::cout << "TEST-2" << std::endl;
 
   return 0;
 }
