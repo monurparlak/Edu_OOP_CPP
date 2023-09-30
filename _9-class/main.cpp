@@ -89,9 +89,11 @@ void myClass::func() { *this = quebec; }
 int main() {
   myClass sierra;
 
+
   sierra.func();
 
   std::cout << "&sierra: " << &sierra << std::endl;
+  
   std::cout << "&quebec: " << &quebec << std::endl;
 
   return 0;
