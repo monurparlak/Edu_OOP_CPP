@@ -552,3 +552,201 @@ int main() {
 
   return 0;
 } */
+/////////////////////////////////////
+/* Ex_14
+// Operator Overloading
+#include <cstring>
+#include <iostream>
+
+class Box {
+private:
+  double length;
+  double width;
+  double height;
+
+public:
+  Box() { std::cout << "Box Constructor" << std::endl; }
+
+  Box(double l, double w, double h) {
+    length = l;
+    width = w;
+    height = h;
+
+    if (w < 0) {
+      std::cout << "Unfortunately! width cannot be '0'" << std::endl;
+      width = 0.0;
+    }
+
+    std::cout << "Box volume: " << (this->length * this->width * this->height)
+              << std::endl;
+  }
+
+  ~Box() { std::cout << "Box Destructor" << std::endl; }
+
+  double getVolume() { return length * width * height; }
+
+  void setWigdth(double w) {
+    if (w < 0)
+      std::cout << "Unfortunately! width cannot be '0'" << std::endl;
+    else
+      width = w;
+  }
+
+  void setHeigt(double h) {
+    if (h < 0)
+      std::cout << "Unfortunately! height cannot be '0'" << std::endl;
+    else
+      height = h;
+  }
+
+  void setLength(double len) {
+    if (len < 0)
+      std::cout << "Unfortunately! length cannot be '0'" << std::endl;
+    else
+      length = len;
+  }
+
+  Box &operator=(const Box &r) {
+    // length of box_1 | length of box_2
+    // box_1(this) = box_2(r);
+    this->length = r.length;
+    this->width = r.width;
+    this->height = r.height;
+
+    return *this;
+  }
+};
+
+int main() {
+  std::cout << "Ex-14" << std::endl;
+  Box box_1;
+
+  Box box_2(1.2, 3.4, 5.6);
+  std::cout << "box_2 volume: " << box_2.getVolume() << std::endl;
+
+  box_2.setLength(25.3);
+  box_2.setHeigt(6.2);
+  box_2.setWigdth(2.9);
+  std::cout << "box_2 volume: " << box_2.getVolume() << std::endl;
+
+  box_2.setLength(-25.3);
+  box_2.setHeigt(-6.2);
+  box_2.setWigdth(-2.9);
+
+  box_1 = box_2;
+  std::cout << "box_1 volume: " << box_1.getVolume() << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_15
+// Operator Overloading
+#include <cstring>
+#include <iostream>
+
+class Box {
+private:
+  double length;
+  double width;
+  double height;
+
+public:
+  Box() { std::cout << "Box Constructor" << std::endl; }
+
+  Box(double l, double w, double h) {
+    length = l;
+    width = w;
+    height = h;
+
+    if (w < 0) {
+      std::cout << "Unfortunately! width cannot be '0'" << std::endl;
+      width = 0.0;
+    }
+
+    std::cout << "Box volume: " << (this->length * this->width * this->height)
+              << std::endl;
+  }
+
+  ~Box() { std::cout << "Box Destructor" << std::endl; }
+
+  double getVolume() { return length * width * height; }
+
+  void setWigdth(double w) {
+    if (w < 0)
+      std::cout << "Unfortunately! width cannot be '0'" << std::endl;
+    else
+      width = w;
+  }
+
+  void setHeigt(double h) {
+    if (h < 0)
+      std::cout << "Unfortunately! height cannot be '0'" << std::endl;
+    else
+      height = h;
+  }
+
+  void setLength(double len) {
+    if (len < 0)
+      std::cout << "Unfortunately! length cannot be '0'" << std::endl;
+    else
+      length = len;
+  }
+
+  void display() const {
+    std::cout << "length/wigth/height: " << std::endl;
+    std::cout << length << " " << width << " " << height << std::endl
+              << std::endl;
+
+    std::cout << "length/wigth/height (this): " << std::endl;
+    std::cout << this->length << " " << this->width << " " << this->height
+              << std::endl
+              << std::endl;
+  }
+
+  Box &operator=(const Box &r) {
+    // length of box_1 | length of box_2
+    // box_1(this) = box_2(r);
+    this->length = r.length;
+    this->width = r.width;
+    this->height = r.height;
+
+    return *this;
+  }
+
+  Box &operator+(const Box &r) {
+    this->length = this->length + r.length;
+    this->width = this->width + r.width;
+    this->height = this->height + r.height;
+
+    return *this;
+  }
+};
+
+int main() {
+  std::cout << "Ex-15" << std::endl;
+  Box box_1(2, 4, 8);
+  Box box_2;
+  Box box_3;
+
+  box_1 = box_2;
+  std::cout << "box_1 volume: " << box_1.getVolume() << std::endl << std::endl;
+
+  box_3 = box_1 + box_2;
+
+  box_1.display();
+  box_2.display();
+  box_3.display();
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_16 */
+// Operator Overloading
+#include <cstring>
+#include <iostream>
+
+int main() {
+  std::cout << "Ex-16" << std::endl;
+
+  return 0;
+}
