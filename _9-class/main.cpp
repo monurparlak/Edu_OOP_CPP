@@ -740,13 +740,62 @@ int main() {
   return 0;
 } */
 /////////////////////////////////////
-/* Ex_16 */
-// Operator Overloading
+/* Ex_16
+// Const Keyword
+#include <cstring>
+#include <iostream>
+
+class classTest {
+private:
+  mutable int mx;
+
+public:
+  void func() const; // object cannot change
+};
+
+void classTest::func() const { mx = 0; }
+
+int main() {
+  std::cout << "Ex-16" << std::endl;
+  classTest a;
+
+  a.func();
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_17
+// Const Keyword
+#include <cstring>
+#include <iostream>
+
+class classTest {
+private:
+  mutable int mx;
+  const int nx;
+
+public:
+  classTest(int kx) {
+    kx = nx;
+    // nx = 10;
+    std::cout << "Default Constructor" << std::endl;
+  }
+};
+
+int main() {
+  std::cout << "Ex-17" << std::endl;
+  classTest a(5);
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_18 */
+// Const Keyword
 #include <cstring>
 #include <iostream>
 
 int main() {
-  std::cout << "Ex-16" << std::endl;
+  std::cout << "Ex-18" << std::endl;
 
   return 0;
 }
