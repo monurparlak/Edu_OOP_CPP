@@ -89,11 +89,9 @@ void myClass::func() { *this = quebec; }
 int main() {
   myClass sierra;
 
-
   sierra.func();
 
   std::cout << "&sierra: " << &sierra << std::endl;
-  
   std::cout << "&quebec: " << &quebec << std::endl;
 
   return 0;
@@ -444,7 +442,7 @@ int main() {
   return 0;
 } */
 /////////////////////////////////////
-/* Ex_12 */
+/* Ex_12
 // Constructor - destructor - copy constructor - assigment operator
 #include <cstring>
 #include <iostream>
@@ -484,4 +482,73 @@ int main() {
   std::cout << "TEST-2" << std::endl;
 
   return 0;
+} */
+/////////////////////////////////////
+/* Ex_13
+// Operator Overloading
+#include <cstring>
+#include <iostream>
+
+class className {
+private:
+  char *pd;
+  int len;
+
+public:
+  className(const char *p);
+  ~className();
+  className(const className &r) {
+    len = r.len;
+    pd = new char[len + 1];
+    strcpy(pd, r.pd);
+    std::cout << "Copy Constructor" << std::endl;
+  }
+  void display() const;
+  int getlen() const;
+
+  className &operator=(const className &r);
+};
+
+className::className(const char *p) {
+  len = strlen(p);
+  pd = new char[len + 1];
+  strcpy(pd, p);
 }
+
+className::~className() {
+  std::cout << "Destructor" << std::endl;
+  delete[] pd;
+}
+
+void className::display() const {
+  std::cout << "className: " << pd << std::endl;
+}
+
+int className::getlen() const { return len; }
+
+void func(className p) {
+  std::cout << "Destructor" << std::endl;
+  std::cout << "~className done!" << std::endl;
+
+  getchar();
+}
+
+className &className::operator=(const className &r) {
+  len = r.len;
+  delete[] pd;
+  pd = new char[len + 1];
+  strcpy(pd, r.pd);
+
+  return *this;
+}
+
+int main() {
+  std::cout << "Ex-13" << std::endl;
+  className myclassName("ARTOS");
+  myclassName.display();
+  func(myclassName);
+  std::cout << myclassName.getlen() << std::endl;
+  myclassName.display();
+
+  return 0;
+} */
