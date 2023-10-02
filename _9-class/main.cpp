@@ -789,13 +789,19 @@ int main() {
   return 0;
 } */
 /////////////////////////////////////
-/* Ex_18 */
-// Const Keyword
+/* Ex_18
+// static keyword
+#include "myClass.hpp" // "${fileDirname}\\myClass.hpp"
 #include <cstring>
 #include <iostream>
+
+myClass myClass;
 
 int main() {
   std::cout << "Ex-18" << std::endl;
 
+  myClass.func();
+  std::cout << myClass.a << std::endl;
+
   return 0;
-}
+} */
