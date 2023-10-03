@@ -805,3 +805,62 @@ int main() {
 
   return 0;
 } */
+/////////////////////////////////////
+/* Ex_19
+// static keyword
+#include "myClass.hpp" // "${fileDirname}\\myClass.hpp"
+#include <cstring>
+#include <iostream>
+
+myClass myClass;
+
+int main() {
+  std::cout << "Ex-19" << std::endl;
+
+  myClass.func();
+  std::cout << myClass.sCount << std::endl;
+
+  myClass.sfunc();
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_20
+// static keyword
+#include "myClass_2.hpp" // "${fileDirname}\\myClass.hpp"
+#include <cstring>
+#include <iostream>
+
+myClass_2 myClass_2;
+
+int main() {
+  std::cout << "Ex-20" << std::endl;
+
+  std::cout << "Class member pieces: " << myClass_2::getCounter() << std::endl;
+
+  myClass_2 *ptr = new myClass_2;
+  std::cout << "Class member pieces: " << myClass_2::getCounter() << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_21
+// static keyword
+#include "myClass_2.hpp" // "${fileDirname}\\myClass.hpp"
+#include <cstring>
+#include <iostream>
+
+myClass_2 myClass_2;
+
+int main() {
+  std::cout << "Ex-21" << std::endl;
+
+  std::cout << "Class member pieces: " << myClass_2::getCounter() << std::endl;
+
+  myClass_2 *ptr = new new_Class; // Renamed the pointer to avoid conflict
+  std::cout << "Class member pieces: " << new_Class::getCounter() << std::endl;
+
+  delete ptr; // Don't forget to delete dynamically allocated objects to avoid
+              // memory leaks
+  return 0;
+} */
