@@ -910,3 +910,83 @@ int main() {
 
   return 0;
 } */
+/////////////////////////////////////
+/* Ex_24
+// Conversion Constructor - inline keyword
+#include <cstring>
+#include <iostream>
+
+class classTest {
+private:
+  int classVal;
+
+public:
+  classTest(int a);
+
+  void display() const;
+
+  classTest &operator=(const classTest &r) {
+    std::cout << "Operator: " << std::endl;
+
+    return *this;
+  }
+};
+
+classTest::classTest(int a) { classVal = a; }
+
+void classTest::display() const {
+  std::cout << "Variable Value is: " << classVal << std::endl;
+}
+
+int main() {
+  std::cout << "Ex-24" << std::endl;
+
+  classTest test(5);
+  test.display();
+
+  test = 8;
+  test.display();
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_25
+// Conversion Constructor - inline keyword
+#include <cstring>
+#include <iostream>
+
+class classTest {
+private:
+  int classVal;
+  int classVal2;
+
+public:
+  classTest(int a) : classVal(a), classVal2(a) {
+    classVal = a;
+    classVal2 = a;
+  }
+
+  void display() const;
+
+  // classTest &operator=(const classTest &r) {
+  //   std::cout << "Operator: " << std::endl;
+  //   return *this;
+  // }
+};
+
+void classTest::display() const {
+  std::cout << "(" << classVal << ")" << std::endl;
+  std::cout << "(" << classVal2 << ")" << std::endl;
+}
+
+int main() {
+  std::cout << "Ex-25" << std::endl;
+
+  classTest test(100);
+  test.display();
+
+  test = 500;
+  test.display();
+
+  return 0;
+} */
