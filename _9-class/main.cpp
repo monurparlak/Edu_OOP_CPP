@@ -864,3 +864,49 @@ int main() {
               // memory leaks
   return 0;
 } */
+/////////////////////////////////////
+/* Ex_22
+// Conversion Constructor - inline keyword
+#include <cstring>
+#include <iostream>
+
+inline int max(int x, int y) { return (x > y) ? x : y; }
+
+int main() {
+  std::cout << "Ex-22" << std::endl;
+
+  std::cout << "Max(3,6): " << max(3, 6) << std::endl;
+
+  return 0;
+} */
+/////////////////////////////////////
+/* Ex_23
+// Conversion Constructor - inline keyword
+#include <cstring>
+#include <iostream>
+
+class classTest {
+private:
+  int classVal;
+
+public:
+  classTest(int a) { classVal = a; }
+
+  void display() const;
+};
+
+void classTest::display() const {
+  std::cout << "Variable Value is: " << classVal << std::endl;
+}
+
+int main() {
+  std::cout << "Ex-23" << std::endl;
+
+  classTest test(5);
+  test.display();
+
+  test = 8;
+  test.display();
+
+  return 0;
+} */
