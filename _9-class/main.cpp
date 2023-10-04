@@ -990,3 +990,44 @@ int main() {
 
   return 0;
 } */
+/////////////////////////////////////
+/* Ex_26
+// Explicit Constructor: You cannot change variable type
+#include <cstring>
+#include <iostream>
+
+class classTest {
+private:
+  int classVal;
+  int classVal2;
+
+public:
+  explicit classTest(int a) : classVal(a), classVal2(a) {
+    classVal = a;
+    classVal2 = a;
+  }
+
+  void display() const;
+
+  // classTest &operator=(const classTest &r) {
+  //   std::cout << "Operator: " << std::endl;
+  //   return *this;
+  // }
+};
+
+void classTest::display() const {
+  std::cout << "(" << classVal << ")" << std::endl;
+  std::cout << "(" << classVal2 << ")" << std::endl;
+}
+
+int main() {
+  std::cout << "Ex-26" << std::endl;
+
+  classTest test(100);
+  test.display();
+
+  test = 500;
+  test.display();
+
+  return 0;
+} */
