@@ -10,6 +10,7 @@ public:
   static int sCount;
   static int sValue;
 
+
   void func() const;
   static void sfunc(); // Just declare it here, no 'static' keyword needed
 };
