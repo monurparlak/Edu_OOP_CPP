@@ -16,7 +16,6 @@ struct carModels_t {
 
 int main() {
   struct carModels_t carModels;
-
   carModels.carName = 'S';
   // strcpy(carModels.carName, 'S');
   carModels.carRate = 7;
